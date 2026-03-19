@@ -59,8 +59,8 @@
       <td><?php echo $rida["price"]; ?></td>
       <td><?php echo $rida["price"]; ?></td>
       <td><?php echo $rida["price"]; ?></td>
-      <td><a href="kustuta.php" class="btn btn-danger">Kustuta</a></td>
-      <td><a href="muuda.php" class="btn btn-warning">Muuda</a></td>
+      <td><a href="kustuta.php?delid=<?= $rida["id"]; ?>" class="btn btn-danger">Kustuta</a></td>
+      <td><a href="muuda.php?editid=<?= $rida["id"]; ?>" class="btn btn-warning">Muuda</a></td>
     </tr>
 
     <?php } ?>
