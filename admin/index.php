@@ -1,4 +1,4 @@
-<?php include('../>config.php'); ?>
+<?php include('../config.php'); ?>
 <?php include('../header.php'); ?>
 
 <!-- sisu -->
@@ -18,8 +18,8 @@
     while($rida = mysqli_fetch_assoc($valjund)){       //sikutan vastuse alla
         // var_dump($rida);                            //kuvan testvastuse
 ?>
-    <div class="col">
-        <div class="card">
+    <!-- <div class="col"> -->
+        <!-- <div class="card">
         <img src="https://loremflickr.com/400/250/<?php echo str_replace(" ","", $rida["mark"]); ?>" class="card-img-top" alt="<?php echo $rida["mark"]; ?>">
         <div class="card-body">
             <h5 class="card-title"><?php echo $rida["mark"]; ?> <?php echo $rida["model"]; ?></h5>
@@ -32,7 +32,7 @@
         </div>
         </div>
     </div>
-    <?php } ?>
+    <?php } ?> -->
         <!-- /üks auto -->
     </div>
 </div>
