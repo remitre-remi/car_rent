@@ -15,8 +15,7 @@
     // var_dump($_GET["otsi"]);
 
     $valjund = mysqli_query($yhendus, $paring); //saadan päringu andmebaasi
-    while($rida = mysqli_fetch_assoc($valjund)){       //sikutan vastuse alla
-        // var_dump($rida);                            //kuvan testvastuse
+    
 ?>
 <table class="table">
   <thead>
@@ -28,24 +27,27 @@
     </tr>
   </thead>
   <tbody>
+    <?php
+        while($rida = mysqli_fetch_assoc($valjund)){       //sikutan vastuse alla
+        // var_dump($rida);                            //kuvan testvastuse
+    ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row"><?php echo $rida["id"]; ?></th>
+      <td><?php echo $rida["mark"]; ?></td>
+      <td><?php echo $rida["model"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
+      <td><?php echo $rida["price"]; ?></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John</td>
-      <td>Doe</td>
-      <td>@social</td>
-    </tr>
+
+    <?php } ?>
+
   </tbody>
 </table>
 
@@ -65,11 +67,9 @@
         </div>
         </div>
     </div>
-    <?php } ?> -->
-        <!-- /üks auto -->
-    </div>
+    
 </div>
-<!-- /sisu -->
+<!--/sisu-->
 
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
