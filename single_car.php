@@ -58,7 +58,7 @@
             <p>Kütus:  <?php echo $rida["fuel"]; ?></p>
             <p>Hind:  <?php echo $rida["price"]; ?></p>
             <p>Aasta: <?php echo $rida["year"]; ?></p>
-            <p>Staatus: <?php echo $rida["status"]; ?></p>
+            <p>Staatus: <php echo $rida["status"]; ?></p>
             <p>Käigukast: <?php echo $rida["transmission"]; ?></p>
             <p>Istmed: <?php echo $rida["seats"]; ?></p>
             <p class="fs-5">Hind: <?php echo $rida["price"]; ?></p>
