@@ -12,14 +12,14 @@
     <!-- menüü -->
       <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
   <div class="container">
-    <a class="navbar-brand" href="index.php">Autorent</a>
+    <a class="navbar-brand" href="#">Autorent</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">Home</a>
+          <a class="nav-link active" href="#">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -41,37 +41,32 @@
     <!-- /menüü -->
 <!-- sisu -->
 <div class="container">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-<!-- üks auto -->
-<?php
-    $paring = "SELECT * FROM cars";
-    if (!empty($_GET["otsi"])) {
-        $otsing = $_GET["otsi"];
-        $paring .= " WHERE mark LIKE '%".$otsing."%'";
-    } 
-    $paring .= " LIMIT 8";
-    // var_dump($_GET["otsi"]);
 
-    $valjund = mysqli_query($yhendus, $paring); //saadan päringu andmebaasi
-    while($rida = mysqli_fetch_assoc($valjund)){       //sikutan vastuse alla
-        // var_dump($rida);                            //kuvan testvastuse
+    <a href="index.php" class="btn btn-dark">Tagasi</a>
+
+    <div class="row">
+<?php
+    $id = $_GET['id'];
+    $paring = "SELECT * FROM cars WHERE id=".$id."";
+    $valjund = mysqli_query($yhendus, $paring);
+    $rida = mysqli_fetch_assoc($valjund);
+    // print_r($rida);
 ?>
-    <div class="col">
-        <div class="card">
-        <img src="https://loremflickr.com/400/250/<?php echo str_replace(" ","", $rida["mark"]); ?>" class="card-img-top" alt="<?php echo $rida["mark"]; ?>">
-        <div class="card-body">
-            <h5 class="card-title"><?php echo $rida["mark"]; ?> <?php echo $rida["model"]; ?></h5>
-            <p class="card-text">
-                Mootor: <?php echo $rida["engine"]; ?> <br>
-                Kütus: <?php echo $rida["fuel"]; ?><br>
-                Hind: <?php echo $rida["price"]; ?>€/päev<br>
-            </p>
-            <a href="single_car.php?id=<?php echo $rida["id"]; ?>" class="btn btn-dark w-100">Rendi</a>
+        <div class="col">
+            <h1><?php echo $rida["mark"]; ?> <?php echo $rida["model"]; ?></h1>
+            <p>Mootor:  <?php echo $rida["engine"]; ?></p>
+            <p>Kütus:  <?php echo $rida["fuel"]; ?></p>
+            <p>Hind:  <?php echo $rida["price"]; ?></p>
+            <p>Aasta: <?php echo $rida["year"]; ?></p>
+            <p>Staatus: <?php echo $rida["status"]; ?></p>
+            <p>Käigukast: <?php echo $rida["transmission"]; ?></p>
+            <p>Istmed: <?php echo $rida["seats"]; ?></p>
+            <p class="fs-5">Hind: <?php echo $rida["price"]; ?></p>
+            <a href="#" class="btn btn-dark w-100"> Rendi auto </a>
         </div>
+        <div class="col">
+            <img src="https://loremflickr.com/800/500/<?php echo str_replace(" ","", $rida["mark"]); ?>" class="card-img-top img-fluid" alt="<?php echo $rida["mark"]; ?>">
         </div>
-    </div>
-    <?php } ?>
-        <!-- /üks auto -->
     </div>
 </div>
 <!-- /sisu -->
@@ -80,3 +75,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
+                
