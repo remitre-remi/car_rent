@@ -2,7 +2,16 @@
 <?php include('../config.php'); ?>
 <?php
     if (!empty($_GET['delid'])) {
-        echo "hakkan kustutama";
+        $id = $_GET['delid'];
+        $paring = "DELETE FROM cars WHERE id=$id";
+        $valjund = mysqli_query($yhendus, $paring);
+        if ($valjund) {
+            echo "Kustutatud";
+            header("location:index.php");
+        } else {
+            echo "Error";
+        }   
+        
     }
 
 
