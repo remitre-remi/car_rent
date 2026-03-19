@@ -3,6 +3,8 @@
 
 <!-- sisu -->
 <div class="container">
+    <h2>Adminni ala</h2>
+    <a href="lisa.php" class="btn btn-success">+ Lisa auto</a>
     <div class="row row-cols-1 row-cols-md-4 g-4">
 <!-- üks auto -->
 <?php
@@ -17,13 +19,26 @@
     $valjund = mysqli_query($yhendus, $paring); //saadan päringu andmebaasi
     
 ?>
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Mark></th>
+      <th scope="col">Mudel</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Hind</th>
+      <th scope="col">Kustuta</th>
+      <th scope="col">Muuda</th>
+      
+      
     </tr>
   </thead>
   <tbody>
@@ -44,6 +59,8 @@
       <td><?php echo $rida["price"]; ?></td>
       <td><?php echo $rida["price"]; ?></td>
       <td><?php echo $rida["price"]; ?></td>
+      <td><a href="kustuta.php" class="btn btn-danger">Kustuta</a></td>
+      <td><a href="muuda.php" class="btn btn-warning">Muuda</a></td>
     </tr>
 
     <?php } ?>
