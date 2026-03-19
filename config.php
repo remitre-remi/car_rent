@@ -1,4 +1,3 @@
-// *** Protseduuriline *** //
 <?php
     // Sinu andmed
     $db_server = 'localhost';
