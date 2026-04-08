@@ -34,12 +34,18 @@ mis on paigaldatud Ubuntu 22.04 LTS virtuaalmasinasse(IP:192.168.1.142).
 
 ## Tõendusmaterjal
 
+### Apache toorik
+![Apache2 olemas](img/apache.png)
+
+### phpMyAdmin algul
+![phpMyAdmin](img/php.png)
+
 ### Veebirakenduse vaade
 ![Veebileht](img/veebileht.png)
 
 ### Andmebaasi struktuur
-![phpMyAdmin](img/php.png)
+![phpMyAdmin](img/tabelid_php.png)
 
 ### Andmed konsoolis
-![Terminal](img/tabelid_bash.png)### Veebirakenduse vaade
+![Terminal](img/tabelid_bash.png)
 
