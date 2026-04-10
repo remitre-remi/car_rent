@@ -1,6 +1,24 @@
 <?php include('config.php'); ?>
 <?php include('header.php'); ?>
 
+<?php
+    if(!empty($_GET)){
+        $mark = $_GET['mark'];
+        $model = $_GET['model'];
+        $engine = $_GET['engine'];
+        $fuel = $_GET['fuel'];
+        $price = $_GET['price'];
+
+        $year = $_GET['year'];
+        $transmission = $_GET['transmission'];
+        $seats = $_GET['seats'];
+        $description = $_GET['description'];
+        $status = $_GET['status'];
+
+        
+    }
+?>
+
 <!-- sisu -->
 <div class="container">
     <h2>Auto lisamine</h2>
