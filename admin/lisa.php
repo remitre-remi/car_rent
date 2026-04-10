@@ -18,7 +18,14 @@
 
        $sql = "INSERT INTO cars (mark, model, engine, fuel, price, year, transmission, seats, description, status) VALUES ('".$mark."', '".$model."', '".$engine."', '".$fuel."', '".$price."', '".$year."', '".$transmission."', '".$seats."', '".$description."', '".$status."')";
 
-       print_r($sql);
+       $valjund = mysqli_query($yhendus, $sql); 
+       $tulemus = mysqli_affected_rows($yhendus);
+        if ($tulemus == 1) {
+            header("Location: index.php?msg=lisatud");
+        } else {
+            echo "Kirjet ei lisatud";
+        }
+
 
     }
 ?>
