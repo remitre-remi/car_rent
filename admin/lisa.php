@@ -19,6 +19,16 @@
                 <input type="number" class="form-control" id="price" name="price">
             </div>
             <div class="col-sm-6">
+                <label for="year" class="form-label">Aasta</label>
+                <input type="number" class="form-control" id="year" name="year" value="2000">
+                <label for="transmission" class="form-label">Käigukast</label>
+                <input type="text" class="form-control" id="transmission" name="transmission" value="automaat">
+                <label for="seats" class="form-label">Istmeid</label>
+                <input type="number" class="form-control" id="seats" name="seats" value="5">
+                <label for="description" class="form-label">Kirjeldus</label>
+                <input type="text" class="form-control" id="description" name="description" value="test">
+                <label for="status" class="form-label">Olek</label>
+                <input type="number" class="form-control" id="status" name="status" value="vaba">
 
             </div>
             <input type="submit" value="Salvesta" class="btn btn-success">
