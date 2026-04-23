@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +20,8 @@
         $hash = '$2y$10$GShDgMs0q43XaQmeWGq0OekAo8RR2wsQWhAgXd4SlYeVwr0zoheaC';
 
         if ($uname=="admin" && password_verify($password, $hash)) {
-            echo "tere admin";
+            $_SESSION['tuvastamine'] = 'misiganes';
+            header("Location: index.php");
         }else{
             $msg = "kasutaja vale";
         }
