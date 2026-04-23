@@ -7,25 +7,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
+
+<?php
+    $msg ="";
+
+    if (!empty($_POST)) {
+        $uname = $_POST['user'];
+        $password = $_POST['password'];
+        $hash = '$2y$10$NvLe0B7CeYdhqIGInoRDgOEYgX9482tod77Zai4lCRgLtXE7TYORq';
+
+        if ($uname=="admin" && password_verify($password, $hash)) {
+            echo "tere maailm";
+        } else {
+            $msg = "kasutaja vale";
+        }
+
+
+
+    }
+
+?>
     <div class="container">
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <form>
+                <form method="post" action="login.php" autocomplete="off">
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">User name</label>
+                        <label for="u" class="form-label">Username</label>
                         <input name="user" type="text" class="form-control" id="u">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="p" class="form-label">Password</label>
+                        <input name="password" type="password" class="form-control" id="p">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
+                    
                     <button type="submit" class="btn btn-primary">Logi sisse</button>
                 </form>
+                <?php= echo $msg; ?>
             </div>
             <div class="col-sm-4"></div>
         </div>
