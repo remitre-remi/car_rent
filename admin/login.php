@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include('../config.php');
 ?>
 
 <!doctype html>
@@ -17,14 +18,23 @@
     if (!empty($_POST)) {
         $uname = $_POST['user'];
         $password = $_POST['password'];
-        $hash = '$2y$10$GShDgMs0q43XaQmeWGq0OekAo8RR2wsQWhAgXd4SlYeVwr0zoheaC';
+        $paring = "SELECT user, password FROM users WHERE user='".$uname."'";
+        print_r($paring);
+        $valjund = mysqli_query($yhendus, $paring);
+        $rida = mysqli_fetch_assoc($valjund);
+        // var_dump($rida);
 
-        if ($uname=="admin" && password_verify($password, $hash)) {
-            $_SESSION['tuvastamine'] = 'misiganes';
-            header("Location: index.php");
-        }else{
-            $msg = "kasutaja vale";
-        }
+        // $hash = '$2y$10$GShDgMs0q43XaQmeWGq0OekAo8RR2wsQWhAgXd4SlYeVwr0zoheaC';
+        
+
+        if (!empty($rida)) {
+            $hash = $rida['password'];
+            if ($uname=="admin" && password_verify($password, $hash)) {
+                $_SESSION['tuvastamine'] = 'misiganes';
+                header("Location: index.php");
+            }else{
+                $msg = "kasutaja vale";
+            }
 
     }
 
