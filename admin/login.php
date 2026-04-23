@@ -1,8 +1,7 @@
-<?php
-    session_start();
+<?php 
+    session_start(); 
     include('../config.php');
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,25 +15,26 @@
     $msg = "";
 
     if (!empty($_POST)) {
+
+        //kasutaja vormist
         $uname = $_POST['user'];
         $password = $_POST['password'];
+
+        //kasutaja andmebaasist
         $paring = "SELECT user, password FROM users WHERE user='".$uname."'";
         print_r($paring);
         $valjund = mysqli_query($yhendus, $paring);
         $rida = mysqli_fetch_assoc($valjund);
-        // var_dump($rida);
-
-        // $hash = '$2y$10$GShDgMs0q43XaQmeWGq0OekAo8RR2wsQWhAgXd4SlYeVwr0zoheaC';
-        
 
         if (!empty($rida)) {
             $hash = $rida['password'];
-            if ($uname=="admin" && password_verify($password, $hash)) {
+            if ($uname== $rida['user'] && password_verify($password, $hash)) {
                 $_SESSION['tuvastamine'] = 'misiganes';
                 header("Location: index.php");
             }else{
                 $msg = "kasutaja vale";
             }
+        }
 
     }
 
