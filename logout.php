@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-session_destroy();
-header('Location: login.php');
-
-
-
+session_destroy(); // Kustutab kõik sessiooni andmed
+header("Location: index.php"); // Suunab tagasi avalehele
+exit();
 ?>

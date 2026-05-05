@@ -1,4 +1,5 @@
 <?php
+ob_start(); // Vältimaks "headers already sent" viga, kui unustame header() kasutada
     // Dockeri keskkonnas on serveri nimeks teenuse nimi, mille määrasid docker-compose failis
     $db_server = 'db'; 
     $db_andmebaas = 'car_rent';
