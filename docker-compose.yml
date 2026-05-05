@@ -1,0 +1,29 @@
+services:
+  # Andmebaasiserver
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: car_rent
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      # See rida võtab sinu SQL faili ja loob selle põhjal tabelid
+      - ./db/car_rent_final.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - car-net
+
+  # Veebiserver (PHP + Apache)
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - car-net
+
+networks:
+  car-net:
+    driver: bridge
