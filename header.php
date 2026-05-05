@@ -17,17 +17,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="index.php">Home</a>
+          <a class="nav-link" href="index.php">Avaleht</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+  
+        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+          <li class="nav-item">
+            <a class="nav-link fw-bold text-primary" href="admin/index.php">Admin Paneel</a>
+          </li>
+        <?php endif; ?>
+
+        <?php if (!isset($_SESSION['user_id'])): ?>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Logi sisse</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="register.php">Registreeru</a>
+          </li>
+        <?php endif; ?>
       </ul>
       <form class="d-flex" role="search" method="get" action="index.php">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="otsi">
