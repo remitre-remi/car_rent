@@ -36,7 +36,7 @@ See on praktiline veebirakendus autorendi teenuse haldamiseks. Rakendus sisaldab
 
 1. Klooni repositoorium: `git clone https://github.com/remitre-remi/car_rent.git`
 2. Käivita Docker: `docker-compose up -d`
-3. Impordi andmebaas failist `db/database.sql`
+3. Impordi andmebaas failist `db/database_05052026.sql`
 4. Ava brauseris: `http://localhost:8080`
 
 ## 🛡 Turvalisus
