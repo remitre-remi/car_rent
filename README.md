@@ -1,51 +1,43 @@
-# Autorendi Projekt - Remi Treier
+# 🚗 Autorendi Haldussüsteem (PHP & MySQL)
 
-See on õppeülesande raames valminud autorendi veebirakendus, 
-mis on paigaldatud Ubuntu 22.04 LTS virtuaalmasinasse(IP:192.168.1.142).
+See on praktiline veebirakendus autorendi teenuse haldamiseks. Rakendus sisaldab avalikku vaadet klientidele ja turvatud kontrollpaneeli administraatorile.
 
-## Projekti osad
-* **Veebiserver:** Apache2
-* **Andmebaas:** MySQL (Andmebaas: `car_rent`, 3 tabelit: `cars`, `users`, `reservations`)
-* **Keel:** PHP
-* **Andmebaasi kasutaja:** Remi
-* **Haldusliides:** phpMyAdmin
-* **Tabelid:** `cars`, `users`, `reservations`
+## 🌟 Peamised funktsioonid
 
-## Paigaldamine
+### Kliendivaade
+* **Autopargi sirvimine:** Dünaamiline ülevaade kõikidest autodest koos tehniliste andmetega.
+* **Otsingufunktsioon:** Võimalus filtreerida autosid margi või mudeli järgi.
+* **Kasutajasüsteem:** Turvaline registreerimine ja sisselogimine (paroolid on räsitud).
 
-1. **Andmebaasi seadistamine:**
-   - Loo andmebaas `car_rent`.
-   - Impordi struktuur failist `db/car_rent_final.sql`:
-     ```bash
-     mysql -u Remi -p car_rent < db/car_rent_final.sql
-     ```
+### Administraatori vaade (CRUD)
+* **Turvatud ligipääs:** Admin-liides on kaitstud serveripoolse sessioonikontrolliga.
+* **Autode lisamine:** Uute sõidukite sisestamine süsteemi.
+* **Andmete muutmine:** Olemasolevate autode info ja saadavuse staatuse uuendamine.
+* **Kustutamine:** Sõidukite eemaldamine andmebaasist.
 
-2. **Konfiguratsioon:**
-   - Kontrolli andmebaasi ühendust failis `config.php`.
-   - Kasutaja: `Remi`, Parool: `remi`.
+## 🛠 Tehniline ülesehitus
 
-3. **Kasutamine:**
-   - Veebileht on kättesaadav aadressil: `http://192.168.1.142/car_rent`
+* **Backend:** PHP 8 (protseduuriline)
+* **Andmebaas:** MySQL
+* **Frontend:** HTML5, CSS3, Bootstrap 5.3
+* **Konteinerid:** Docker (Apache, PHP, MySQL)
 
-## Tehtud muudatused
-- Lisatud `users` tabel kliendiandmete jaoks.
-- Lisatud `reservations` tabel broneeringute haldamiseks (seotud `cars` ja `users` tabelitega).
-- Lisatud testandmed andmebaasi testimiseks.
+## 📁 Kaustastruktuur
 
-## Tõendusmaterjal
+- **admin/** - Administraatori paneeli failid (lisa, muuda, kustuta)
+- **db/** - Andmebaasi SQL skriptid (tabelite struktuur)
+- **img/** - Autode pildid
+- **config.php** - Andmebaasi ühenduse seaded
+- **header.php** - Universaalne navigatsioonimenüü ja sessioonihaldus
+- **index.php** - Rakenduse avalik avaleht
+- **login.php / register.php** - Kasutajate autentimine
 
-### Apache toorik
-![Apache2 olemas](img/apache.png)
+## 🚀 Paigaldamine
 
-### phpMyAdmin algul
-![phpMyAdmin](img/php.png)
+1. Klooni repositoorium: `git clone https://github.com/remitre-remi/car_rent.git`
+2. Käivita Docker: `docker-compose up -d`
+3. Impordi andmebaas failist `db/database.sql`
+4. Ava brauseris: `http://localhost:8080`
 
-### Veebirakenduse vaade
-![Veebileht](img/veebileht.png)
-
-### Andmebaasi struktuur
-![phpMyAdmin](img/tabelid_php.png)
-
-### Andmed konsoolis
-![Terminal](img/tabelid_bash.png)
-
+## 🛡 Turvalisus
+Rakenduses on kasutatud `mysqli_real_escape_string` meetodit SQL-süstimise vältimiseks ning `password_hash` funktsiooni kasutajate paroolide turvaliseks salvestamiseks.
